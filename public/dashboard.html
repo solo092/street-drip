@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STREET DRIP — Dashboard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <div class="logo"><span class="dot"></span>Street Drip</div>
+    <p>Staff access only. Enter the dashboard passcode to continue.</p>
+    <input type="password" id="gateInput" placeholder="PASSCODE" autocomplete="off">
+    <button id="gateBtn">Unlock</button>
+    <div class="gate-err" id="gateErr"></div>
+  </div>
+</div>
+
+<header>
+  <nav class="wrap">
+    <div class="logo"><span class="dot"></span>Street Drip</div>
+    <a class="wa-btn" href="index.html">
+      <span>Back to Store</span>
+    </a>
+  </nav>
+</header>
+
+<main class="dash-main">
+  <div class="wrap">
+    <div class="dash-head">
+      <span class="idx">Staff Only</span>
+      <h1>Dashboard</h1>
+      <p>Add new pieces to the catalog with a photo, price, and category. Changes go live on the storefront for every visitor, on every device, right away.</p>
+    </div>
+
+    <div class="dash-grid">
+      <div class="panel">
+        <h2>Add Product</h2>
+        <form id="productForm">
+          <div class="field">
+            <label for="pname">Product Name</label>
+            <input type="text" id="pname" placeholder="e.g. Air Force 1 Stone Grey" required>
+          </div>
+          <div class="field">
+            <label for="pcat">Category</label>
+            <select id="pcat">
+              <option value="shoes">Shoes</option>
+              <option value="clothing">Clothing</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pprice">Price</label>
+            <input type="text" id="pprice" placeholder="e.g. 32K" required>
+          </div>
+          <div class="field">
+            <label for="pwa">WhatsApp Number</label>
+            <input type="text" id="pwa" placeholder="e.g. 250795201759" value="250795201759" required>
+          </div>
+          <div class="field">
+            <label for="pfile">Product Photo</label>
+            <div class="file-drop">
+              <img class="preview-thumb" id="previewThumb" alt="">
+              <input type="file" id="pfile" accept="image/*" required>
+            </div>
+          </div>
+          <button type="submit" class="dash-submit" id="submitBtn">Add Product</button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+        <div class="storage-note">
+          Products are saved on the server, so every visitor sees the same live catalog on any device. If you deploy on a host with a temporary filesystem, make sure the <code>uploads/</code> and <code>data/</code> folders are on a persistent disk — otherwise new products can be lost on redeploy or restart.
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Current Catalog</h2>
+        <div class="product-list" id="productList"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="dashboard.js" defer></script>
+</body>
+</html>
